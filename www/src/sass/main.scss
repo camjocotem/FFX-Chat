@@ -1,0 +1,146 @@
+$background-left: #6BAACC;
+$background-right: #B9C287;
+
+$button-right: #574981;
+$button-left: #4F2878;
+
+$font-light: rgba(255,255,255, 0.86);
+$font-dark: rgba(0,0,0, 0.86);
+
+@mixin ffFont($font-size){
+    font-size: $font-size;         
+    color: $font-light;         
+    text-shadow: 2px 2px black;         
+    font-family: sans-serif;
+    //font-family: albhed;
+}
+
+@mixin ffFontDark($font-size){
+    font-size: $font-size;         
+    color: $font-dark;         
+    text-shadow: 2px 2px white;         
+    font-family: sans-serif;
+    //font-family: albhed;
+}
+
+@mixin mainBackgroundGradient{
+	     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6baacc+0,b9c287+92 */
+     background: #6baacc; /* Old browsers */
+     background: -moz-linear-gradient(left,  #6baacc 0%, #b9c287 92%); /* FF3.6-15 */
+     background: -webkit-linear-gradient(left,  #6baacc 0%,#b9c287 92%); /* Chrome10-25,Safari5.1-6 */
+     background: linear-gradient(to right,  #6baacc 0%,#b9c287 92%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6baacc', endColorstr='#b9c287',GradientType=1 ); /* IE6-9 */	
+}
+
+@mixin blueBackgroundGradient{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#477ba5+0,22307f+100 */
+	background: #477ba5; /* Old browsers */
+	background: -moz-linear-gradient(left,  #477ba5 0%, #22307f 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #477ba5 0%,#22307f 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #477ba5 0%,#22307f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#477ba5', endColorstr='#22307f',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin purpleBackgroundGradient{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4f2878+0,574981+100 */
+	background: #4f2878; /* Old browsers */
+	background: -moz-linear-gradient(left,  #4f2878 0%, #574981 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #4f2878 0%,#574981 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #4f2878 0%,#574981 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f2878', endColorstr='#574981',GradientType=1 ); /* IE6-9 */
+}
+
+//
+//@font-face {
+//  font-family: 'albhed';
+//  src: url('../font/albhed.ttf');
+//}
+
+header{
+    text-transform: uppercase;
+    background: black;
+    padding: 0.9rem;
+    padding-left: 2rem;
+    
+    @include ffFont(1.1rem);
+    text-shadow: 2px 2px gray;
+}
+
+ main{
+	 @include mainBackgroundGradient;     
+     overflow-y: scroll;
+	 
+	 md-content{
+		 background: rgba(0,0,0,0);
+	 }
+     
+     .messageContainer{         
+         margin: 0.6rem 0.2rem 0.2rem 0.2rem;
+         border: 0;
+         border-bottom: 3px solid black;
+         min-height: 50px;
+		 
+		 @include blueBackgroundGradient;
+         
+         .chatMessage{
+             padding: 0.7rem;
+             @include ffFont(1.5rem);
+			 word-wrap: break-word;
+         }
+         
+         .messageHeader{
+             padding: .5rem;
+             background: white;
+             @include ffFontDark(0.8rem);
+         }
+     }
+	 
+	 #userList{
+		 $user-list-border: solid rgb(39, 42, 91);
+		 border-left: 24px $user-list-border;
+		 
+		 div{
+			 @include ffFont(1rem);
+			 padding: 0.3rem 2rem 0.3rem 2rem;
+			 margin: 0.2rem;
+			 border: 0;
+			 border-bottom: 3px solid black;
+			 @include purpleBackgroundGradient;
+		 }
+		 
+		 .user{
+			 border-bottom: 5px $user-list-border;
+		 }
+	 }
+}
+
+footer, md-dialog-content{
+	button{
+        @include ffFont(1rem);
+		padding: 0.3rem 2rem 0.3rem 2rem;
+        margin: 0.2rem;
+        border: 0;
+        border-bottom: 3px solid black;
+		
+		@include purpleBackgroundGradient;
+	}
+ }
+
+footer{
+	min-height: 35px;
+	max-height: 35px;
+}
+
+md-dialog-content{
+	padding: 1rem;	
+}
+
+
+		md-toolbar:not(.md-menu-toolbar){			
+			.md-toolbar-tools{
+				h2{
+					@include ffFont(1.3rem);
+				}				
+				@include blueBackgroundGradient;				
+			}
+		}

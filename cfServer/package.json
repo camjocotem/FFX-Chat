@@ -1,0 +1,22 @@
+{
+  "name": "chatfuscator",
+  "version": "1.0.0",
+  "description": "a just for fun work thing",
+  "main": "chatFuscator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonny",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "lodash": "^4.15.0",
+    "morgan": "^1.7.0",
+    "node-env-file": "^0.1.8",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}

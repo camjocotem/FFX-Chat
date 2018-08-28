@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Al Bhed Chat</title>
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/angular-material.css" />
+
+	<script src="lib/jquery.js"></script>
+	<script src="lib/dependency.js"></script>
+	<script src="lib/app.js"></script>
+	<script src="lib/app.env.js"></script>
+	<script src="lib/app.states.js"></script>
+	<script src="lib/chatApp.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			if (!Notification) {
+				alert('Desktop notifications not available in your browser. Try Chromium.');
+				return;
+			}
+
+			if (Notification.permission !== "granted") {
+				Notification.requestPermission();
+			}
+		});
+
+	</script>
+</head>
+
+<body ng-app="chatApp" layout="column" layout-align="space-between stretch" flex="100" ng-controller="MainController">
+	<header flex>Al Bhed Chat!</header>
+	<main flex="90" layout="row">
+		<md-content flex="80" scroll-bottom="chatMessages">
+			<div ng-repeat="message in chatMessages track by $index" layout="row" layout-xs="column" class="messageContainer">
+				<span class="chatMessage" flex="80" flex-xs="100">{{message.content}}</span>
+				<div layout="column" flex="20" class="messageHeader" flex-xs="100">
+					<span flex="50">{{message.timestamp | date:'medium'}}</span>
+					<span flex="50">User: {{message.user.name}}</span>
+				</div>
+			</div>
+		</md-content>
+		<!--	Temp measure, ng-if on number of users	-->
+		<div layout="column" ng-if="chatMessages.length > 0" flex="20" id="userList">
+			<div ng-repeat="user in connectedUsers track by $index" class="user">
+				{{user}}
+			</div>
+		</div>
+	</main>
+	<footer flex="5" layout="row" layout-align="space-around">
+		<input type="text" flex="80" ng-model="chatMessage" ng-keydown="sendChatMessage(chatMessage, $event)">
+		<button class="md-primary md-raised" flex ng-click="sendChatMessage(chatMessage)">Send</button>
+	</footer>
+</body>
+
+</html>

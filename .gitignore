@@ -1,0 +1,6 @@
+node_modules
+build
+www/src/lib/app.*
+www/src/lib/chatApp.*
+www/src/lib/dependency.js
+*.map
